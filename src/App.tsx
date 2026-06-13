@@ -7,6 +7,7 @@ import Pricing from "./pages/Pricing"
 import Projects from "./pages/Projects"
 import View from "./pages/View"
 import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path="/community" element={<Community />} />
       <Route path="/view/:projectId" element={<View />} />
      </Routes>
+     <Footer/>
     </div>
   )
 }
