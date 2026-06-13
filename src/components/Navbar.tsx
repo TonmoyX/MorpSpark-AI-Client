@@ -8,8 +8,9 @@ const Navbar = () => {
     return (
          <>
          <nav className="z-50 flex items-center justify-between w-full py-4 px-4 md:px-16 lg:px-24 xl:px-32 backdrop-blur border-b text-white border-slate-800">
-            <Link to="https://prebuiltui.com">
-                Hello AI
+            <Link to="/" className="flex text-2xl font-bold bg-gradient-to-r from-[#CB52D4] to-indigo-600 bg-clip-text text-transparent">
+                <img src='/src/assets/logo.png' alt="MorpSpark Logo" className="h-8 w-8 mr-2" />
+                MorpSpark
             </Link>
 
           <div className="hidden md:flex items-center gap-8 transition duration-500">
