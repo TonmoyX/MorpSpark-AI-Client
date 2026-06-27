@@ -14,6 +14,7 @@ function App() {
   const {pathname} = useLocation()
 
   const hideNavbar = pathname.startsWith('/projects/') && pathname !== '/projects' || pathname.startsWith('/view/') || pathname.startsWith('/preview/')
+  const hideFooter = pathname.startsWith('/projects/') && pathname !== '/projects' || pathname.startsWith('/view/') || pathname.startsWith('/preview/')
 
   return (
     <div className="App">
@@ -29,7 +30,7 @@ function App() {
       <Route path="/community" element={<Community />} />
       <Route path="/view/:projectId" element={<View />} />
      </Routes>
-     <Footer/>
+      {!hideFooter && <Footer/>}
     </div>
   )
 }
