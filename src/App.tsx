@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, useLocation } from "react-router-dom"
 import Community from "./pages/Community"
 import Home from "./pages/Home"
 import MyProjects from "./pages/MyProjects"
@@ -10,9 +10,15 @@ import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 
 function App() {
+
+  const {pathname} = useLocation()
+
+  const hideNavbar = pathname.startsWith('/projects/') && pathname !== '/projects' || pathname.startsWith('/view/') || pathname.startsWith('/preview/')
+
   return (
     <div className="App">
-      <Navbar></Navbar>
+      {!hideNavbar && <Navbar></Navbar>}
+      
      <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/pricing" element={<Pricing />} />
