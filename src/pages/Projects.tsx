@@ -36,9 +36,21 @@ const Projects = () => {
   const saveProject = async () => {
 
   }
-
-  const downloadCOde = () =>{
-      
+// download code (index.html)
+  const downloadCode = () =>{
+    const code = previewRef.current?.getCode() || project?.current_code;
+    if(!code){
+      if(isGenerating){
+        return 
+      }
+      return
+    }
+    const element = document.createElement('a');
+    const file = new Blob([code], {type : 'text/html'});
+    element.href = URL.createObjectURL(file)
+    element.download = 'index.html';
+    document.body.appendChild(element)
+    element.click();
   }
 
   const togglePublish = async () => {
@@ -109,7 +121,7 @@ const Projects = () => {
                  Save
             </button>
             <Link target="_blank" to={`/preview/${projectId}`} className="flex items-center gap-2 px-4 py-1 rounded sm:rounded-sm border border-gray-700 hover:border-gray-500 transition-colors"><Fullscreen size={16}/> Preview</Link>
-            <button onClick={downloadCOde} className="bg-linear-to-br from-blue-700 to-blue-600 hover:from-blue-600 hover:to-blue-500 text-white px-3.5 py-1 flex items-center gap-2 rounded sm:rounded-sm transition-colors">
+            <button onClick={downloadCode} className="bg-linear-to-br from-blue-700 to-blue-600 hover:from-blue-600 hover:to-blue-500 text-white px-3.5 py-1 flex items-center gap-2 rounded sm:rounded-sm transition-colors">
                 <ArrowBigDown size={16}/> Download
             </button>
             <button onClick={togglePublish} className="bg-linear-to-br from-indigo-700 to-indigo-600 hover:from-indigo-600 hover:to-indigo-500 text-white px-3.5 py-1 flex items-center gap-2 rounded sm:rounded-sm transition-colors">
