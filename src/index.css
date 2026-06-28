@@ -2,7 +2,7 @@
 @import "tailwindcss";
 *{
   font-family: 'Outfit', sans-serif;
-  color: black;
+  /* color: white; */
 }
 @layer base {
   button {
